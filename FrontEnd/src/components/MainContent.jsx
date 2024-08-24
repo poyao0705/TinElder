@@ -5,7 +5,7 @@ const MainContent = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-white px-4">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center px-4">
       {/* Title */}
       <div className="text-center text-black text-[36px] sm:text-[48px] md:text-[80px] lg:text-[120px] font-normal font-['Vollkorn'] leading-tight">
         TinElder
