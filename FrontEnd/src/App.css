@@ -40,32 +40,34 @@
 .read-the-docs {
   color: #888;
 }
-
 @keyframes backgroundChange {
   0% {
-    background-image: url('/Users/esther/my-website/Property_1.png');
+    background-image: url('/Property_1.png');
   }
   20% {
-    background-image: url('/Users/esther/my-website/Property_2.png');
+    background-image: url('/Property_2.png');
   }
   40% {
-    background-image: url('/Users/esther/my-website/Property_3.png');
+    background-image: url('/Property_3.png');
   }
   60% {
-    background-image: url('/Users/esther/my-website/Property_4.png');
+    background-image: url('/Property_4.png');
   }
   80% {
-    background-image: url('/Users/esther/my-website/Property_5.png');
+    background-image: url('/Property_5.png');
   }
   100% {
-    background-image: url('/Users/esther/Downloads/Property_1.png'); /* Loop back to the first image */
+    background-image: url('/Property_1.png'); /* Loop back to the first image */
   }
 }
 
 .animate-background {
   width: 1440px;
   height: 885.85px;
-  animation: url('/Users/esther/my-website/Property_2.png');
+<<<<<<< Updated upstream
+  animation: backgroundChange 10s infinite;
+=======
+  animation: backgroundChange 15s infinite;
+>>>>>>> Stashed changes
   background-size: cover;
-  background-position: center;
 }

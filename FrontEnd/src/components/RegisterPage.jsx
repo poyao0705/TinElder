@@ -36,7 +36,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-white p-4">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center p-4">
       <form onSubmit={handleSubmit} className="w-full max-w-lg flex flex-col items-center">
         {/* User Name Text Block */}
         <div className="w-full h-auto px-6 py-5 bg-gradient-to-r from-[#9796f0] to-[#fbc7d4] rounded-[50px] shadow border border-white justify-center items-center gap-2.5 inline-flex mb-8">
