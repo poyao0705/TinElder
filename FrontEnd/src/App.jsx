@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainContent from './components/MainContent';
 import RegisterPage from './components/RegisterPage';
 import LoginPage from './components/LoginPage';
-import HomePage from './components/HomePage'; // Import the HomePage component
+import HomePage from './components/HomePage'; 
+import Music from './components/music';  // Import Music component
+import MyEvents from './components/MyEvents';
 import './index.css';
 
 const App = () => {
@@ -15,6 +17,8 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/home" element={<HomePage />} />  {/* Add the home route */}
+          <Route path="/music" element={<Music />} />  {/* Add Music route */}
+          <Route path="/myEvent" element={<MyEvents />} />
         </Routes>
       </Router>
     </div>
