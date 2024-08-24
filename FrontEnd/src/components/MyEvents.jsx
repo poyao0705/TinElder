@@ -80,4 +80,6 @@ const MyEvents = () => {
 
 <<<<<<< Updated upstream
 export default MyEvents;
+=======
+export default MyEvents;
 >>>>>>> Stashed changes
