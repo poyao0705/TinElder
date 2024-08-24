@@ -7,10 +7,12 @@ import HomePage from './components/HomePage';
 import Music from './components/music';  // Import Music component
 import Sport from './components/sport';
 import MyEvents from './components/MyEvents';
+import Football from './components/Football';
+import Basketball from './components/Basketball';
+import Swimming from './components/Swimming';
+import Tennis from './components/Tennis';
 import CookingPage from './components/CookingPage';
 import GardenPage from './components/GardenPage';
-
-import './index.css';
 
 const App = () => {
   return (
@@ -24,6 +26,10 @@ const App = () => {
           <Route path="/music" element={<Music />} />  {/* Add Music route */}
           <Route path="/sport" element={<Sport />} />
           <Route path="/myEvent" element={<MyEvents />} />
+          <Route path="/football" element={<Football />} />
+          <Route path="/basketball" element={<Basketball />} />
+          <Route path="/swimming" element={<Swimming />} />
+          <Route path="/tennis" element={<Tennis />} />
           <Route path="/cooking" element={<CookingPage />} />
           <Route path="/gardening" element={<GardenPage />} />
         </Routes>
