@@ -8,6 +8,7 @@ const RegisterPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [pin, setPin] = useState('');
   const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();  // Initialize navigate function
 
   const validateInput = () => {
@@ -39,9 +40,9 @@ const RegisterPage = () => {
                 'Content-Type': 'application/json',  // Ensure this is set
             },
             body: JSON.stringify({
-                username: 'exampleUser',
-                phone_number: '1234567890',
-                pin: '1234',
+                username: userName,
+                phone_number: phoneNumber,
+                pin: pin,
             }),
         });
 
@@ -51,6 +52,7 @@ const RegisterPage = () => {
             console.log(data.message);
             navigate('/login');  // Redirect to login page using useNavigate
         } else {
+            setMessage(data.message);
             console.error(data.message);
         }
     } catch (error) {
@@ -120,10 +122,14 @@ const RegisterPage = () => {
             Submit
           </button>
         </div>
-        {errors.pin && (
+        {/* {errors.pin && (
           <div className="text-red-600 text-lg mb-4">{errors.pin}</div>
+        )} */}
+        {message && (
+          <div className="w-full max-w-[90%] h-auto px-6 py-2 mt-4 text-center text-white bg-[#0052d4] rounded-lg">
+            {message}
+          </div>
         )}
-        
       </form>
     </div>
   );
