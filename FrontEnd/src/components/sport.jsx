@@ -58,7 +58,7 @@ const Sport = () => {
                   onClick={() => handleJoin('/football')}
                   className="px-8 py-4 bg-gradient-to-r from-[#9796f0] via-[#f0c1d6] to-[#fbc7d4] rounded-full shadow border border-white text-white text-xl font-bold"
                 >
-                  Join
+                  Events
                 </button>
                 <button
                   onClick={() => handleIgnore('football')}
@@ -107,7 +107,7 @@ const Sport = () => {
                   onClick={() => handleJoin('/basketball')}
                   className="px-8 py-4 bg-gradient-to-r from-[#9796f0] via-[#f0c1d6] to-[#fbc7d4] rounded-full shadow border border-white text-white text-xl font-bold"
                 >
-                  Join
+                  Events
                 </button>
                 <button
                   onClick={() => handleIgnore('basketball')}
@@ -156,7 +156,7 @@ const Sport = () => {
                     onClick={() => handleJoin('/swimming')}
                     className="px-8 py-4 bg-gradient-to-r from-[#9796f0] via-[#f0c1d6] to-[#fbc7d4] rounded-full shadow border border-white text-white text-xl font-bold"
                 >
-                    Join
+                    Events
                 </button>
                 <button
                     onClick={() => handleIgnore('swimming')}
@@ -205,7 +205,7 @@ const Sport = () => {
                     onClick={() => handleJoin('/tennis')}
                     className="px-8 py-4 bg-gradient-to-r from-[#9796f0] via-[#f0c1d6] to-[#fbc7d4] rounded-full shadow border border-white text-white text-xl font-bold"
                 >
-                    Join
+                    Events
                 </button>
                 <button
                     onClick={() => handleIgnore('tennis')}

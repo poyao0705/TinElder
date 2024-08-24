@@ -3,19 +3,22 @@ import { useEvents } from '../context/EventsContext';  // Import the useEvents h
 
 const Football = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const { addEvent } = useEvents();  // Get the addEvent function from context
+  const [events, setEvents] = useState(true);
+
+  
+  // const { addEvent } = useEvents();  // Get the addEvent function from context
 
   const handleIgnore = () => {
     setIsVisible(false);
   };
 
   const handleJoin = () => {
-    const footballEvent = {
-      name: 'Football',
-      date: 'July 22, 2024, 3:00 PM - 5:00 PM',
-      location: 'Community Sports Center, Court 3',
-    };
-    addEvent(footballEvent);  // Add the football event to the user's events
+    // const footballEvent = {
+    //   name: 'Football',
+    //   date: 'July 22, 2024, 3:00 PM - 5:00 PM',
+    //   location: 'Community Sports Center, Court 3',
+    // };
+    // addEvent(footballEvent);  // Add the football event to the user's events
   };
 
   return (

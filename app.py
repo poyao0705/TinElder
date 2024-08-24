@@ -121,6 +121,14 @@ def logout():
     session.clear()
     return jsonify({"message": "You have been logged out."}), 200
 
+# @app.route('/events')
+# def get_events():
+#     db = get_db()
+#         cursor = db.cursor()
+#         cursor.execute("INSERT INTO groups (group_name, user_id) VALUES (?, ?)", (group_name, user_id))
+#         db.commit()
+#         return jsonify({"message": "Group created successfully!"}), 201
+
 if __name__ == "__main__":
     with app.app_context():
         init_db()  # Initialize the database schema
