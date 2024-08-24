@@ -23,19 +23,10 @@ const MainContent = () => {
         </button>
         <button
           onClick={() => navigate('/register')}
-          className="w-full h-[50px] sm:h-[60px] md:h-[70px] lg:h-[80px] bg-gradient-to-r from-[#9796f0] to-[#fbc7d4] shadow border border-white flex justify-center items-center mb-6 rounded-lg"
-        >
-          <div className="text-center text-white text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-semibold font-['Roboto']">
-            Create an account
-          </div>
-        </button>
-        {/*"Go to My Events" button */}
-        <button
-          onClick={() => navigate('/myEvent')}
           className="w-full h-[50px] sm:h-[60px] md:h-[70px] lg:h-[80px] bg-gradient-to-r from-[#9796f0] to-[#fbc7d4] shadow border border-white flex justify-center items-center rounded-lg"
         >
           <div className="text-center text-white text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-semibold font-['Roboto']">
-            Go to My Events
+            Create an account
           </div>
         </button>
       </div>
