@@ -75,7 +75,11 @@ const LoginPage = () => {
       <button
         onClick={handleSubmit}
         type="submit"
+<<<<<<< Updated upstream
         className="w-full max-w-[220px] h-auto px-6 py-2 rounded-lg border-2 border-[#0052d4] text-center text-black font-medium font-['Roboto'] text-lg md:text-lg"
+=======
+        className="w-full max-w-[220px] h-auto px-6 py-2 rounded-lg border-2 border-[#0052d4] text-center text-black font-medium font-['Roboto'] text-lg md:text-lg transition-transform transform hover:bg-[#0052d4] hover:text-white hover:-translate-y-1 hover:shadow-lg"
+>>>>>>> Stashed changes
       >
         Submit
       </button>

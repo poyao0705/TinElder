@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+<<<<<<< Updated upstream
 
 const Football = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -7,6 +8,25 @@ const Football = () => {
     // Start collapsing animation by setting isVisible to false
     setIsVisible(false);
     // Optionally, you can remove the component from the DOM after the animation is complete
+=======
+import { useEvents } from '../context/EventsContext';  // Import the useEvents hook
+
+const Football = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const { addEvent } = useEvents();  // Get the addEvent function from context
+
+  const handleIgnore = () => {
+    setIsVisible(false);
+  };
+
+  const handleJoin = () => {
+    const footballEvent = {
+      name: 'Football',
+      date: 'July 22, 2024, 3:00 PM - 5:00 PM',
+      location: 'Community Sports Center, Court 3',
+    };
+    addEvent(footballEvent);  // Add the football event to the user's events
+>>>>>>> Stashed changes
   };
 
   return (
@@ -61,6 +81,10 @@ const Football = () => {
               {/* Buttons */}
               <div className="flex space-x-4">
                 <button
+<<<<<<< Updated upstream
+=======
+                  onClick={handleJoin}  // Attach the handleJoin function to the "Join" button
+>>>>>>> Stashed changes
                   className="px-8 py-4 bg-gradient-to-r from-[#9796f0] via-[#f0c1d6] to-[#fbc7d4] rounded-full shadow border border-white text-white text-xl font-bold"
                 >
                   Join

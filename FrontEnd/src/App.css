@@ -64,7 +64,10 @@
 .animate-background {
   width: 1440px;
   height: 885.85px;
+<<<<<<< Updated upstream
   animation: backgroundChange 10s infinite;
+=======
+  animation: backgroundChange 15s infinite;
+>>>>>>> Stashed changes
   background-size: cover;
-  background-position: center;
 }
