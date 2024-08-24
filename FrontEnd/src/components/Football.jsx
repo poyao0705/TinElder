@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useEvents } from '../context/EventsContext';  // Import the useEvents hook
+import { useEvents } from '../context/EventsContext'; 
+import { useNavigate } from 'react-router-dom'; // Import the useEvents hook
 
 const Football = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -7,21 +8,25 @@ const Football = () => {
 
   
   // const { addEvent } = useEvents();  // Get the addEvent function from context
+  const { addEvent } = useEvents();  // Get the addEvent function from context
+  const navigate = useNavigate();
+
 
   const handleIgnore = () => {
     setIsVisible(false);
   };
 
   const handleJoin = () => {
-    // const footballEvent = {
-    //   name: 'Football',
-    //   date: 'July 22, 2024, 3:00 PM - 5:00 PM',
-    //   location: 'Community Sports Center, Court 3',
-    // };
-    // addEvent(footballEvent);  // Add the football event to the user's events
+    const footballEvent = {
+      name: 'Football',
+      date: 'July 22, 2024, 3:00 PM - 5:00 PM',
+      location: 'Community Sports Center, Court 3',
+    };
+    addEvent(footballEvent);  // Add the football event to the user's events
   };
 
   return (
+    
     <div className="relative p-4 md:p-8 lg:p-12">
       {/* Top Gradient Header */}
       <div className="w-full max-w-[851px] mx-auto h-auto px-4 py-2 bg-gradient-to-r from-[#9796f0] to-[#fbc7d4] rounded-[40px] shadow border border-white flex justify-center items-center mb-16">
@@ -84,6 +89,18 @@ const Football = () => {
                 >
                   Ignore
                 </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Read More Image Button */}
+          <div className="flex justify-center mt-8">
+            <div
+              className="h-[10vw] max-h-[60px] px-[5vw] max-px-[30px] py-[3vw] max-py-[18px] bg-gradient-to-r from-[#9796f0] to-[#fbc7d4] rounded-[50px] shadow border border-white flex items-center gap-5 cursor-pointer transition-transform transform hover:-translate-y-1"
+              onClick={() => navigate('/add-event')}
+            >
+              <div className="text-white text-[2.5vw] max-text-base font-normal font-['DM Sans']">
+                Add events
               </div>
             </div>
           </div>

@@ -17,6 +17,8 @@ import CookingPage from './components/CookingPage';
 import GardenPage from './components/GardenPage';
 import NavBarJ from './components/NavBarJ'; // Import NavBarJ component
 import OtherGroupsPage from './components/OtherGroupsPage';
+import AddEventPage from './components/AddEventPage';
+import { UserProvider } from './context/UserContext';
 
 const App = () => {
   const location = useLocation();
@@ -41,6 +43,7 @@ const App = () => {
         <Route path="/cooking" element={<CookingPage />} />
         <Route path="/gardening" element={<GardenPage />} />
         <Route path="/other" element={<OtherGroupsPage />} />
+        <Route path="/add-event" element={<AddEventPage />} />
       </Routes>
     </div>
   );
@@ -49,11 +52,13 @@ const App = () => {
 // Wrapping App with Router to access useLocation
 
 const AppWrapper = () => (
-  <EventsProvider>
-    <Router>
-      <App />
-    </Router>
-  </EventsProvider>
+    <UserProvider>  
+        <EventsProvider>
+          <Router>
+            <App />
+          </Router>
+        </EventsProvider>
+      </UserProvider>
 );
 
 export default AppWrapper;
