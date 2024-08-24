@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Import the useNavigate hook
+import axios from 'axios';
 
 const RegisterPage = () => {
   const [userName, setUserName] = useState('');
@@ -27,11 +28,38 @@ const RegisterPage = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateInput()) {
-      alert('Form submitted successfully!');
-      navigate('/login');  // Redirect to login page
+      const data = {
+        username: userName,
+        phone_number: phoneNumber,
+        pin: pin,
+      };
+
+      try {
+        const response = await axios.post('http://localhost:5000/signup', data);
+
+        if (response.status === 201) {
+          alert(response.data.message);
+          navigate('/login');  // Redirect to login page
+        } else {
+          alert(response.data.message);
+        }
+      } catch (error) {
+        if (error.response) {
+          // Server responded with a status other than 2xx
+          alert(error.response.data.message);
+        } else if (error.request) {
+          // Request was made but no response received
+          console.error('No response received:', error.request);
+          alert('No response received from the server.');
+        } else {
+          // Something else happened in setting up the request
+          console.error('Error:', error.message);
+          alert('An error occurred while registering.');
+        }
+      }
     }
   };
 
