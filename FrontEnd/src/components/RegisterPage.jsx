@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Import the useNavigate hook
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 const RegisterPage = () => {
   const [userName, setUserName] = useState('');
@@ -27,17 +29,38 @@ const RegisterPage = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    if (validateInput()) {
-      alert('Form submitted successfully!');
-      navigate('/login');  // Redirect to login page
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',  // Ensure this is set
+            },
+            body: JSON.stringify({
+                username: 'exampleUser',
+                phone_number: '1234567890',
+                pin: '1234',
+            }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log(data.message);
+            navigate('/login');  // Redirect to login page using useNavigate
+        } else {
+            console.error(data.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
     }
-  };
+};
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center p-4">
-      <form onSubmit={handleSubmit} className="w-full max-w-lg flex flex-col items-center">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-white p-4">
+      <form onSubmit={handleSignup} className="w-full max-w-lg flex flex-col items-center">
         {/* User Name Text Block */}
         <div className="w-full h-auto px-6 py-5 bg-gradient-to-r from-[#9796f0] to-[#fbc7d4] rounded-[50px] shadow border border-white justify-center items-center gap-2.5 inline-flex mb-8">
           <div className="text-center text-white text-[32px] md:text-[32px] lg:text-[32px] font-semibold font-['Roboto']">
