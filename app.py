@@ -51,6 +51,12 @@ def signup():
 
         db = get_db()
         cursor = db.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ? OR phone_number = ?", (username, phone_number))
+        existing_user = cursor.fetchone()
+
+        if existing_user:
+            return jsonify({"message": "Username or phone number already exists."}), 409
+
         try:
             cursor.execute("INSERT INTO users (username, phone_number, pin) VALUES (?, ?, ?)",
                         (username, phone_number, pin))
@@ -91,6 +97,22 @@ def login():
             return jsonify({"message": f"Welcome, {user[1]}!"}), 200
         else:
             return jsonify({"message": "Invalid phone number or PIN."}), 401
+    else:
+        return jsonify({"message": "Unsupported Media Type. Please send JSON data."}), 415
+    
+@app.route('/add_group', methods=['POST'])
+@cross_origin()
+def add_group():
+    if request.is_json:
+        data = request.json
+        group_name = data.get('group_name')
+        user_id = session.get('user_id')
+
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("INSERT INTO groups (group_name, user_id) VALUES (?, ?)", (group_name, user_id))
+        db.commit()
+        return jsonify({"message": "Group created successfully!"}), 201
     else:
         return jsonify({"message": "Unsupported Media Type. Please send JSON data."}), 415
 

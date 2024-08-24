@@ -59,13 +59,8 @@ const RegisterPage = () => {
 };
 
   return (
-<<<<<<< HEAD
     <div className="w-full min-h-screen flex flex-col justify-center items-center bg-white p-4">
       <form onSubmit={handleSignup} className="w-full max-w-lg flex flex-col items-center">
-=======
-    <div className="w-full min-h-screen flex flex-col justify-center items-center p-4">
-      <form onSubmit={handleSubmit} className="w-full max-w-lg flex flex-col items-center">
->>>>>>> 01c2aabbbe97f0645fbc682846b3bfcc4790ed58
         {/* User Name Text Block */}
         <div className="w-full h-auto px-6 py-5 bg-gradient-to-r from-[#9796f0] to-[#fbc7d4] rounded-[50px] shadow border border-white justify-center items-center gap-2.5 inline-flex mb-8">
           <div className="text-center text-white text-[32px] md:text-[32px] lg:text-[32px] font-semibold font-['Roboto']">

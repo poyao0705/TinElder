@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-=======
 import { useNavigate } from 'react-router-dom';
->>>>>>> 01c2aabbbe97f0645fbc682846b3bfcc4790ed58
 
 const LoginPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [pin, setPin] = useState('');
-<<<<<<< HEAD
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+
+  const validateInput = () => {
+    // Simple validation for phone number and pin
+    if (!phoneNumber.match(/^\d{10}$/)) {
+      return 'Please enter a valid 10-digit phone number.';
+    }
+    if (!pin.match(/^\d{4}$/)) {
+      return 'Please enter a valid 4-digit pin.';
+    }
+    return null;
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+    const validationError = validateInput();
+    if (validationError) {
+      setMessage(validationError);
+      return;
+    }
     try {
         const response = await fetch('http://127.0.0.1:5000/login', {
             method: 'POST',
@@ -29,6 +41,7 @@ const LoginPage = () => {
 
         if (response.ok) {
             setMessage(data.message);
+            navigate('/home');  // Redirect to HomePage after successful login
         } else {
             setMessage(data.message);
         }
@@ -37,34 +50,21 @@ const LoginPage = () => {
         setMessage('An error occurred during login.');
     }
 };
-=======
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const validateInput = () => {
-    // Simple validation for phone number and pin
-    if (!phoneNumber.match(/^\d{10}$/)) {
-      return 'Please enter a valid 10-digit phone number.';
-    }
-    if (!pin.match(/^\d{4}$/)) {
-      return 'Please enter a valid 4-digit pin.';
-    }
-    return null;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationError = validateInput();
-    if (validationError) {
-      setError(validationError);
-    } else {
-      // Simulate successful login (replace this with your login logic)
-      setError(null);
-      alert('Login successful!');
-      navigate('/home');  // Redirect to HomePage after successful login
-    }
-  };
->>>>>>> 01c2aabbbe97f0645fbc682846b3bfcc4790ed58
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const validationError = validateInput();
+  //   if (validationError) {
+  //     setError(validationError);
+  //   } else {
+  //     // Simulate successful login (replace this with your login logic)
+  //     setError(null);
+  //     alert('Login successful!');
+  //     navigate('/home');  // Redirect to HomePage after successful login
+  //   }
+  // };
 
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center p-4">
@@ -95,8 +95,8 @@ const LoginPage = () => {
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
         placeholder="Enter your phone number"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
+        // value={phoneNumber}
+        // onChange={(e) => setPhoneNumber(e.target.value)}
         className="w-full max-w-[90%] h-auto px-4 py-2 text-lg md:text-lg text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9796f0] focus:border-transparent mb-12"
       />
 
@@ -107,21 +107,16 @@ const LoginPage = () => {
         onChange={(e) => setPin(e.target.value)}
         maxLength="4"
         placeholder="Enter your 4-digit pin"
-        value={pin}
-        onChange={(e) => setPin(e.target.value)}
+        // value={pin}
+        // onChange={(e) => setPin(e.target.value)}
         className="w-full max-w-[90%] h-auto px-4 py-2 text-lg md:text-lg text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9796f0] focus:border-transparent mb-12"
       />
 
       {/* Submit Button */}
       <button
-        onClick={handleSubmit}
         type="submit"
-<<<<<<< HEAD
         onClick={handleLogin}
         className="w-full max-w-[220px] h-auto px-6 py-2 rounded-lg border-2 border-[#0052d4] text-center text-black font-medium font-['Roboto'] text-lg md:text-lg"
-=======
-        className="w-full max-w-[220px] h-auto px-6 py-2 rounded-lg border-2 border-[#0052d4] text-center text-black font-medium font-['Roboto'] text-lg md:text-lg transition-transform transform hover:bg-[#0052d4] hover:text-white hover:-translate-y-1 hover:shadow-lg"
->>>>>>> 01c2aabbbe97f0645fbc682846b3bfcc4790ed58
       >
         Submit
       </button>
