@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-<<<<<<< Updated upstream
-=======
+
 import { EventsProvider } from './context/EventsContext';  // Import the EventsProvider
->>>>>>> Stashed changes
 import MainContent from './components/MainContent';
 import RegisterPage from './components/RegisterPage';
 import LoginPage from './components/LoginPage';
@@ -18,10 +16,7 @@ import Tennis from './components/Tennis';
 import CookingPage from './components/CookingPage';
 import GardenPage from './components/GardenPage';
 import NavBarJ from './components/NavBarJ'; // Import NavBarJ component
-<<<<<<< Updated upstream
-=======
 import OtherGroupsPage from './components/OtherGroupsPage';
->>>>>>> Stashed changes
 
 const App = () => {
   const location = useLocation();
@@ -29,11 +24,7 @@ const App = () => {
   return (
     <div className="app-background">
       {/* Conditionally render NavBarJ based on the current location */}
-<<<<<<< Updated upstream
-      {location.pathname !== '/login' && <NavBarJ />} 
-=======
       {location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/' && <NavBarJ />}
->>>>>>> Stashed changes
       <Routes>
       <Route path="/" element={<MainContent />} />
         <Route path="/" element={<Navigate to="/login" />} /> {/* Redirect root to login page */}
@@ -49,22 +40,13 @@ const App = () => {
         <Route path="/tennis" element={<Tennis />} />
         <Route path="/cooking" element={<CookingPage />} />
         <Route path="/gardening" element={<GardenPage />} />
-<<<<<<< Updated upstream
-=======
         <Route path="/other" element={<OtherGroupsPage />} />
->>>>>>> Stashed changes
       </Routes>
     </div>
   );
 };
 
 // Wrapping App with Router to access useLocation
-<<<<<<< Updated upstream
-const AppWrapper = () => (
-  <Router>
-    <App />
-  </Router>
-=======
 
 const AppWrapper = () => (
   <EventsProvider>
@@ -72,7 +54,6 @@ const AppWrapper = () => (
       <App />
     </Router>
   </EventsProvider>
->>>>>>> Stashed changes
 );
 
 export default AppWrapper;

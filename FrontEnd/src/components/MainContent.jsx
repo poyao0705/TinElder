@@ -5,12 +5,6 @@ const MainContent = () => {
   const navigate = useNavigate();
 
   return (
-<<<<<<< Updated upstream
-    <div className="w-full min-h-screen flex flex-col justify-center items-center px-4">
-      {/* Title */}
-      <div className="text-center text-black text-[36px] sm:text-[48px] md:text-[80px] lg:text-[120px] font-normal font-['Vollkorn'] leading-tight">
-        TinElder
-=======
     <div className="w-full min-h-screen flex flex-col md:flex-row items-center justify-center px-4">
       {/* Left Side: Title and Buttons */}
       <div className="w-full md:w-2/3 lg:w-[60%] flex flex-col justify-center items-center px-6 md:px-12 lg:px-16">
@@ -41,7 +35,6 @@ const MainContent = () => {
             </div>
           </button>
         </div>
->>>>>>> Stashed changes
       </div>
 
       {/* Right Side: Image */}
