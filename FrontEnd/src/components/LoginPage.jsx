@@ -18,6 +18,10 @@ const LoginPage = () => {
     return null;
   };
 
+  const faceLogin = () => {
+    navigate('/faceLogin');
+  }
+
   const handleLogin = async (e) => {
     e.preventDefault();
     const validationError = validateInput();
@@ -119,6 +123,14 @@ const LoginPage = () => {
         className="w-full max-w-[220px] h-auto px-6 py-2 rounded-lg border-2 border-[#0052d4] text-center text-black font-medium font-['Roboto'] text-lg md:text-lg"
       >
         Submit
+      </button>
+      {/* FaceID login Button */}
+      <button
+        type="submit"
+        onClick={faceLogin}
+        className="w-full max-w-[220px] h-auto px-6 py-2 rounded-lg border-2 border-[#0052d4] text-center text-black font-medium font-['Roboto'] text-lg md:text-lg"
+      >
+        FaceID
       </button>
 
       {/* Display Message */}

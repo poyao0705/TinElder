@@ -19,6 +19,7 @@ import NavBarJ from './components/NavBarJ'; // Import NavBarJ component
 import OtherGroupsPage from './components/OtherGroupsPage';
 import AddEventPage from './components/AddEventPage';
 import { UserProvider } from './context/UserContext';
+import FaceLogin from './components/FaceLogin';
 
 const App = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const App = () => {
       <Route path="/" element={<MainContent />} />
         <Route path="/" element={<Navigate to="/login" />} /> {/* Redirect root to login page */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/faceLogin" element={<FaceLogin />}/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/music" element={<Music />} />

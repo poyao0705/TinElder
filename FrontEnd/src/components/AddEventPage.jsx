@@ -41,7 +41,7 @@ const AddEventPage = () => {
           className="w-full px-4 py-2 mb-4 border rounded"
         />
         <input
-          type="text"
+          type="datetime-local"
           placeholder="Event Date and Time"
           value={eventDate}
           onChange={(e) => setEventDate(e.target.value)}
